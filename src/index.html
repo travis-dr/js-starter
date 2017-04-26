@@ -1,0 +1,35 @@
+<!--
+This is a template for index.html.
+It uses ejs and htmlWebpackPlugin to generate a different index.html for each environment.
+htmlWebpackPlugin will dynamically add references to the scripts and styles that it bundles
+to this file.  The generated bundles are configured to have hash-based filenames, so it's
+necessary to add the references dynamically.
+See http://www.embeddedjs.com for more detail on ejs
+See https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs on how to use it with Webpack
+-->
+<html>
+  <head>
+    <% if (htmlWebpackPlugin.options.trackJSToken) { %>
+    <!--
+      <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>'};</script>
+      <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.hs"></script>
+    -->
+    <% } %>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <table>
+      <thead>
+        <th>&nbsp;</th>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </thead>
+      <tbody id="users">
+      </tbody>
+   <!-- <script src="bundle.js"></script>
+   This is no longer required as the html-webpack-plugin is going to dynamically inject the value
+   -->
+  </body>
+</html>
